@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>ATG</title>
+  <style>
+    #input {
+      width: 50vw;
+      border-radius: 20px;
+    }
+    #main {
+      background-color: rgba(0, 0, 0, 0.45);
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    
+    li:hover {
+      color: black;
+      text-decoration: underline;
+    }
+
+    li {
+      color: rgba(138, 138, 138, 1);
+      list-style: none;
+      font-size: 20px;
+      font-weight: bolder;
+    }
+    #p{
+      margin-left: 10%;
+    }
+    #selected {
+      color: black;
+      text-decoration: underline;
+    }
+
+    #p1 {
+      display: flex;
+      justify-content: space-between;
+      font-size: 22px;
+      font-family: IBM Plex Sans;
+      font-weight: bolder;
+    }
+
+    #p2 {
+      font-size: 19px;
+      color: rgba(92, 92, 92, 1);
+    }
+
+    .menu {
+      margin-top: 5%;
+    }
+
+    .container .row {
+      margin-top: 5%;
+    }
+
+    i {
+      font-style: normal;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #sidebar {
+      height: 40px;
+    }
+    #submit{
+      margin:20px 0 20px;
+      border-radius: 20px;
+      background-color: rgba(47, 108, 229, 1);
+      color: white;
+      width: 80%;
+      border: none;
+    }
+    #person {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #sideline {
+      color: rgba(0, 0, 0, 1);
+      font-size: 12px;
+      line-height: 15.6px;
+    }
+
+    .visit,
+    .apply {
+      padding: 1vh 0 1vh 0;
+      margin-bottom: 2vh;
+      border-radius: 8px 8px 8px 8px;
+      border: 0.7px solid rgba(169, 174, 184, 1);
+      text-align: center;
+    }
+
+    .visit {
+      color: rgba(229, 97, 53, 1);
+    }
+    #alter{
+      width: 80%;
+      background-color: white;
+      border: 0.6px solid rgba(217, 217, 219, 1);
+      margin-bottom: 2vh;
+    }
+    .loc{
+      display:flex;
+      justify-content:space-between;
+    }
+    .apply {
+      color: rgba(2, 184, 117, 1);
+    }
+    #modalbox{
+      border-radius: 20px;
+    }
+    input{
+      background-color: rgba(247, 248, 250, 1);
+      color: rgba(217, 217, 219, 1);
+      border: 1px solid rgba(217, 217, 219, 1);
+    }
+  </style>
+</head>
+
+<body>
+ 
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+    <div class="container-fluid" style="display:flex;justify-content: space-between;">
+      <a class="navbar-brand" href="#"><img src="/images/whole.png" alt="Brand Logo" style="height: 40px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="d-flex">
+          <input class="form-control me-2" id="input" type="search" placeholder="Search for your favorite groups in ATG"
+            aria-label="Search">
+        </form>
+        <p id="p">
+          Create account. <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" style="color: rgba(51, 154, 240, 1);">It’s free!</a>
+
+          <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-dialog modal-lg" id="modalbox">
+            <div class="modal-content">
+              <div class="modal-header" style="background-color:rgba(239, 255, 244, 1);">
+                <h6 class="modal-title" id="exampleModalLabel" style="color:rgba(0, 138, 69, 1);">Let's learn, share & inspire each other with our passion for computer engineering. Sign up now 🤘🏼</h6>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-md-7">
+                    <h1>Create Account</h1>
+                    <br>
+                    <input type="text" name="first" placeholder="First Name"  style=" width: 40%;">
+                    <input type="text" name="last" placeholder="Last Name"  style=" width: 40%;"><br>
+                    <input type="email" name="email" placeholder="Email" style=" width: 80%;"><br>
+                    <input type="password" name="password" placeholder="Password"  style=" width: 80%;"><br>
+                    <input type="password" name="password" placeholder="Confirm Password"  style=" width: 80%;"><br>
+                    <button id="submit">Create Account</button>
+                    <button id="alter"><img src="/images/Group 3 (1).png" alt="facebook"></button>
+                    <button id="alter"><img src="/images/Group.png" alt="google"></button><br>
+                  </div>
+                  <div class="col-md-5">
+                    <h6>Already have an account?<a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> Sign In</a></h6>
+                    
+                    <img src="/images/atg_illustration.png" alt="signin">
+                    <h6 style="color: rgba(0, 0, 0, 1);">By signing up, you agree to our Terms & conditions, Privacy policy</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </p>
+      </div>
+    </div>
+  </nav>
+  <div class="main">
+    <div class="row" id="main">
+      <img src="/images/Rectangle 2.png" style="z-index: -1;">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <a href="#">
+            <li id="selected">All Posts(32)</li>
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a href="#">
+            <li>Article</li>
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a href="#">
+            <li>Event</li>
+          </a>
+        </div>
+        <div class="col-md-2">
+          <a href="#">
+            <li>Education</li>
+          </a>
+        </div>
+        <div class="col-md-2">
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Write a Post
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary" id="sidebar" type="button" data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="/images/Vector (1).png" alt="group">
+          <i>Join Group</i></button>
+        </div>
+      </div>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 id="offcanvasRightLabel"><img src="/images/outline-location_on-24px 2.png" alt="side">Noida, India</h5>
+            <p><img src="/images/baseline-edit-24px.png" alt="edit"></p>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <hr>
+          </div>
+          <hr>
+          <div class="offcanvas-body">
+            <h5 id="sideline"> <img src="/images/baseline-error_outline-24px.png" alt="">Your location will help us
+              serve better and extend a personalised experience.</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="card">
+          <img src="/images/Rectangle 5 (2).png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">✍️ Article</h5>
+            <p class="card-text" id="p1">What if famous brands had regular fonts? Meet RegulaBrands! <img
+                src="/images/Group 3.png" id="dots" alt="dots"></p>
+            <p class="card-text" id="p2">I’ve worked in UX for the better part of a decade. From now on, I plan to rei…
+            </p>
+            <div id="person">
+              <p><img src="/images/Rectangle 3.png" alt=""> Sarthak Kamra</p>
+              <p><img src="/images/visibility_24px_outlined.svg" alt="">1.4k Views <img src="/images/Group 2.png"
+                  alt=""> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <img src="/images/Rectangle 5 (1).png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">🔬️ Education</h5>
+            <p class="card-text" id="p1">Tax Benefits for Investment under National Pension Scheme launched by
+              Government <img src="/images/Group 3.png" id="dots" alt="dots"></p>
+            <p class="card-text" id="p2">I’ve worked in UX for the better part of a decade. From now on, I plan to rei…
+            </p>
+            <div id="person">
+              <p><img src="/images/Rectangle 3 (2).png" alt=""> Sarah West</p>
+              <p><img src="/images/visibility_24px_outlined.svg" alt="">1.4k Views <img src="/images/Group 2.png"
+                  alt=""> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <img src="/images/Rectangle 5.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">🗓️ Meetup</h5>
+            <p class="card-text" id="p1">Finance & Investment Elite Social Mixer @Lujiazui <img
+                src="/images/Group 3.png" id="dots" alt="dots"></p>
+           <div class="loc">
+            <p class="card-text"><img src="/images/baseline-today-24px.png" alt=""> Fri, 12 Oct, 2018</p>
+            <p class="card-text"><img src="/images/outline-location_on-24px 2.png" alt="">  Ahmedabad, India</p>
+           </div>
+            
+            <div class="visit"> Visit website</div>
+            <div id="person">
+              <p><img src="/images/Rectangle 3 (3).png" alt=""> Ronal Jones</p>
+              <p><img src="/images/visibility_24px_outlined.svg" alt="">1.4k Views <img src="/images/Group 2.png"
+                  alt=""> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">💼️ Job</h5>
+            <p class="card-text" id="p1">Software Developer <img src="/images/Group 3.png" id="dots" alt="dots"></p>
+            <div class="loc">
+              <p class="card-text"><img src="/images/outline-work_outline-24px.png" alt=""> Innovaccer Analytics Private
+                Ltd.</p>
+              <p class="card-text"><img src="/images/outline-location_on-24px 2.png" alt="">  Noida, India</p>
+            </div>
+            <div class="apply"> Apply on Timesjobs</div>
+            <div id="person">
+              <p><img src="/images/Rectangle 3 (4).png" alt=""> Joseph Gray</p>
+              <p><img src="/images/visibility_24px_outlined.svg" alt="">1.4k Views <img src="/images/Group 2.png"
+                  alt=""> </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+</body>
+
+</html>
